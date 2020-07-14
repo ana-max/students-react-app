@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist/",
+    "baseUrl": "./server/",
+    "target": "es2018"
+  }
+}
