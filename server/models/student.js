@@ -15,6 +15,9 @@ const studentSchema = new Schema({
     photoUrl: {
         type: String
     },
+    photoData: {
+        data: String
+    },
     speciality: {
         type: String
     },

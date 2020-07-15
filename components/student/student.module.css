@@ -1,4 +1,60 @@
 .student
 {
+    display: grid;
     grid-template-columns: repeat(10, 1fr);
+    grid-gap: 10px;
+    margin: 25px 0;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.student__image
+{
+
+}
+
+.student__image,
+.image
+{
+    grid-column: 1 / 2;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.student__name
+{
+    grid-column: 2 / 4;
+}
+
+.student__speciality
+{
+    grid-column: 4 / 6;
+}
+
+.student__group
+{
+    grid-column: 6 / 7;
+}
+
+.student__age
+{
+    grid-column: 7 / 8;
+}
+
+.student__rating
+{
+    grid-column: 8 / 9;
+}
+
+.student__color
+{
+    grid-column: 9 / 10;
+}
+
+.student__delete-button
+{
+    grid-column: 10 / 11;
 }

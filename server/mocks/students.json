@@ -3,7 +3,7 @@
     "fio": "Григорьева Светлана",
     "rating": 65,
     "age": 21,
-    "photoUrl": "avatar1.jpg",
+    "photoUrl": "avatar1.png",
     "speciality": "Прикладная информатика",
     "group": "ПИ-101"
   },
@@ -11,6 +11,7 @@
     "fio": "Степанова Анна",
     "rating": 29,
     "age": 20,
+    "photoUrl": "avatar2.png",
     "speciality": "Прикладная информатика",
     "group": "ПИ-101"
   },
@@ -18,6 +19,7 @@
     "fio": "Сундар Пичаи",
     "rating": 80,
     "age": 19,
+    "photoUrl": "avatar3.png",
     "speciality": "Прикладная информатика",
     "group": "ПИ-101"
   },
@@ -25,6 +27,7 @@
     "fio": "Алексеев Александр",
     "rating": 46,
     "age": 22,
+    "photoUrl": "avatar4.png",
     "speciality": "Прикладная информатика",
     "group": "ПИ-101"
   }

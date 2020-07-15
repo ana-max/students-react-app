@@ -6,15 +6,15 @@ import styles from './header.module.css';
 export default function Header() {
     return (
         <header className={styles.logo}>
-            <Link to='/' className={'routerLink'}>
-                <img className='logo__imageOuter'
+            <p className={styles.logo__text}>
+                <img className={styles.logo__textImgOuter}
                      src='/images/logo.svg'
                      alt="Логотип" />
-                <img className={styles.logo__imageInner}
+                <img className={styles.logo__textImgInner}
                      src='/images/logo2.svg'
                      alt="Логотип" />
-                <span className={styles.logo__text}>STUDENTS</span>
-            </Link>
+                <p className={styles.logo__textStudents}>STUDENTS</p>
+            </p>
         </header>
     );
 }
