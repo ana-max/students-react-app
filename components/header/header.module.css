@@ -1,41 +1,28 @@
 .logo
 {
     height: 85px;
-    position: relative;
-    padding: 22px 0 0 123px;
-    box-sizing: border-box;
+    padding: 22px 123px;
     margin-bottom: 25px;
-    box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 7px 64px #EDEDED;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 44px;
+}
+
+.routerLink
+{
+    display: flex;
+    color: #000;
+    text-decoration: none;
+}
+
+.logo__imageInner
+{
+    margin-left: -39px;
+    margin-right: 54px;
 }
 
 .logo__text
 {
-    display: flex;
-    font-size: 20px;
-    line-height: 44px;
     margin: 0;
-    font-family: Geometria, serif;
-    text-decoration: none;
-    color: #000;
-    cursor: pointer;
-}
-
-.logo__textImgOuter
-{
-    position: absolute;
-    margin-left: 0;
-    margin-right: 100px;
-}
-
-.logo__textImgInner
-{
-    position: absolute;
-    margin-left: 9px;
-    margin-top: 9px;
-}
-
-.logo__textStudents
-{
-    position: absolute;
-    margin: 0 80px;
 }
