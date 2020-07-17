@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Avatar from "../components/avatar/avatar";
-import {ALL_SPECIALITIES, ALL_GROUPS} from "../server/common/consts";
-import {createStudent} from "../server/common/utils";
+
+import { ALL_SPECIALITIES, ALL_GROUPS } from '../server/common/consts';
+import { createStudent } from '../server/common/utils';
+import Avatar from '../components/avatar/avatar';
+import BackToListLink from '../components/back-to-list-link/back-to-list-link';
+import Palette from '../components/palette/palette';
+import StudentCreateButton from '../components/student-create-button/button';
 
 export default class StudentAddingPage extends Component {
     state = {
@@ -14,21 +17,21 @@ export default class StudentAddingPage extends Component {
         gender: 'Выберите',
         age: 'Возраст',
         color: 'Выберите',
+        colorHex: '',
         image: ''
     }
 
-    handleChange = event => {
+    changeCharacteristicField = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    handleSubmit = async () => {
-        const { name, email, speciality, group, rating, gender, age, color } = this.state;
-        const queryParams = { name, email, speciality, group, rating, gender, age, color };
-        const body = new FormData();
-        body.append('avatar', this.state.image);
-        await createStudent(queryParams, body);
+    changeColor = (color, colorHex) => {
+        this.setState({
+            color,
+            colorHex
+        })
     }
 
     changeImage = (image) => {
@@ -37,15 +40,19 @@ export default class StudentAddingPage extends Component {
         });
     }
 
+    fetchStudent = async () => {
+        console.info(this.state);
+        const { name, email, speciality, group, rating, gender, age, colorHex } = this.state;
+        const queryParams = { name, email, speciality, group, rating, gender, age, colorHex };
+        const body = new FormData();
+        body.append('avatar', this.state.image);
+        await createStudent(queryParams, body);
+    }
+
     render() {
         return (
             <>
-                <section className='back-to-list'>
-                    <Link to={'/'}>
-                        <img src='/images/back.svg' alt='Стрелка назад'/>
-                    </Link>
-                    <div className='back-to-list__text'>НАЗАД К СПИСКУ СТУДЕНТОВ</div>
-                </section>
+                <BackToListLink />
                 <div className='new-student'>Новый студент</div>
                 <Avatar changeImage={this.changeImage}/>
                 <section className='characteristic'>
@@ -55,7 +62,7 @@ export default class StudentAddingPage extends Component {
                                id='name'
                                name='name'
                                className='characteristic__field'
-                               onChange={this.handleChange}
+                               onChange={this.changeCharacteristicField}
                                placeholder={this.state.name}
                                autoComplete='off'
                                required='required'
@@ -69,7 +76,7 @@ export default class StudentAddingPage extends Component {
                                 {this.state.gender}
                             </label>
                             <input type='checkbox' id='gender' className='select__head'/>
-                            <ul className='select__list' onClick={this.handleChange}>
+                            <ul className='select__list' onClick={this.changeCharacteristicField}>
                                 <input type='radio' className='select__item' id='gender1'
                                        name='gender' value='мужской' />
                                 <label htmlFor='gender1' className='select__item-label'>
@@ -90,7 +97,7 @@ export default class StudentAddingPage extends Component {
                                id='email'
                                name='email'
                                className='characteristic__field'
-                               onChange={this.handleChange}
+                               onChange={this.changeCharacteristicField}
                                placeholder={this.state.email}
                                autoComplete='off'
                                required='required'
@@ -103,7 +110,7 @@ export default class StudentAddingPage extends Component {
                                id='age'
                                name='age'
                                className='characteristic__field'
-                               onChange={this.handleChange}
+                               onChange={this.changeCharacteristicField}
                                placeholder={this.state.age}
                                autoComplete='off'
                                min='16'
@@ -119,7 +126,7 @@ export default class StudentAddingPage extends Component {
                                 {this.state.speciality}
                             </label>
                             <input type='checkbox' id='speciality' className='select__head'/>
-                            <ul className='select__list' onClick={this.handleChange}>
+                            <ul className='select__list' onClick={this.changeCharacteristicField}>
                                 {ALL_SPECIALITIES.map(speciality =>
                                     <>
                                         <input type='radio' className='select__item' id={`spec${speciality.id}`}
@@ -140,27 +147,8 @@ export default class StudentAddingPage extends Component {
                                 {this.state.color}
                             </label>
                             <input type='checkbox' id='favourite-color' className='select__head'/>
-                            <section className='color-section' onClick={this.handleChange}>
-                                <input type='radio' id='blue' name='color' className='circle' value='Голубой'/>
-                                <label htmlFor='blue' className='color-label blue-circle' />
-
-                                <input type='radio' id='red' name='color' className='circle' value='Красный' />
-                                <label htmlFor='red' className='color-label red-circle' />
-
-                                <input type='radio' id='green' name='color' className='circle' value='Зелёный'/>
-                                <label htmlFor='green' className='color-label green-circle' />
-
-                                <input type='radio' id='yellow' name='color' className='circle' value='Жёлтый' />
-                                <label htmlFor='yellow' className='color-label yellow-circle' />
-
-                                <input type='radio' id='black' name='color' className='circle' value='Чёрный'/>
-                                <label htmlFor='black' className='color-label black-circle' />
-
-                                <input type='radio' id='orange' name='color' className='circle' value='Оранжевый' />
-                                <label htmlFor='orange' className='color-label orange-circle' />
-
-                                <input type='radio' id='rainbow' name='color' className='circle' value='Все цвета' />
-                                <label htmlFor='rainbow' className='color-label rainbow-circle' />
+                            <section className='palette'>
+                                <Palette changeColor={this.changeColor} />
                             </section>
                         </section>
                     </section>
@@ -172,7 +160,7 @@ export default class StudentAddingPage extends Component {
                                 {this.state.group}
                             </label>
                             <input type='checkbox' id='group' className='select__head'/>
-                            <ul className='select__list' onClick={this.handleChange}>
+                            <ul className='select__list' onClick={this.changeCharacteristicField}>
                                 {ALL_GROUPS.map(group =>
                                     <>
                                         <input type='radio' className='select__item' id={`group${group.id}`}
@@ -192,7 +180,7 @@ export default class StudentAddingPage extends Component {
                                id='rating'
                                name='rating'
                                className='characteristic__field'
-                               onChange={this.handleChange}
+                               onChange={this.changeCharacteristicField}
                                placeholder={this.state.rating}
                                autoComplete='off'
                                min='0'
@@ -201,11 +189,8 @@ export default class StudentAddingPage extends Component {
                     </section>
 
                 </section>
-                <Link to={'/'}>
-                    <button className='create-button' onClick={this.handleSubmit}>Создать</button>
-                </Link>
+                <StudentCreateButton onClick={this.fetchStudent} />
             </>
         );
     }
 }
-

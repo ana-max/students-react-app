@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom'
 
-import {deleteStudent, getStudents, searchStudents, sortStudents} from '../server/common/utils';
+import { deleteStudent, getStudents, searchStudents, sortStudents } from '../server/common/utils';
 import Student from '../components/student/student';
 import StudentAddButton from '../components/student-add-button/button';
 import SearchLine from '../components/search-line/search-line';
 import SortLine from '../components/sort-line/sort-line';
+import StudentsListHeader from '../components/students-list-header/header';
 
 export default class StudentsPage extends Component {
     state = {
@@ -63,9 +64,9 @@ export default class StudentsPage extends Component {
             .catch(() => this.setState({ isError: true }));
     }
 
-    deleteStudent = (id) => {
+    deleteStudent = (studentId) => {
         const queryParams = {
-            id: id
+            id: studentId
         };
         deleteStudent(queryParams)
             .then(this.fetchStudents)
@@ -87,17 +88,20 @@ export default class StudentsPage extends Component {
                     <SearchLine searchStudents={this.searchStudents} />
                     <SortLine sortStudents={this.sortStudents} />
                 </div>
-                <InfiniteScroll next={this.fetchStudents.bind(this)}
-                                hasMore={hasMore}
-                                dataLength={students.length}
-                                loader={<h4>Loading...</h4>}
-                                >
-                    {students.map(student =>
-                        <Student key={student._id}
-                                 student={student}
-                                 deleteStudent={this.deleteStudent}
-                        />)}
-                </InfiniteScroll>
+                <StudentsListHeader />
+                <section className='students-list'>
+                    <InfiniteScroll next={this.fetchStudents.bind(this)}
+                                    hasMore={hasMore}
+                                    dataLength={students.length}
+                                    loader={<h4>Loading...</h4>}
+                    >
+                        {students.map(student =>
+                            <Student key={student._id}
+                                     student={student}
+                                     deleteStudent={this.deleteStudent}
+                            />)}
+                    </InfiniteScroll>
+                </section>
             </>
         );
     }

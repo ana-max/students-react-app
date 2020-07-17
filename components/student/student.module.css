@@ -1,16 +1,18 @@
 .student
 {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px;
+    align-items: center;
     margin: 25px 0;
     font-size: 15px;
     line-height: 20px;
+    padding: 0 19px;
 }
 
-.student__image
+.image
 {
-
+    object-fit: cover;
 }
 
 .student__image,
@@ -26,35 +28,47 @@
 
 .student__name
 {
-    grid-column: 2 / 4;
+
+    grid-column: 2 / 5;
 }
 
 .student__speciality
 {
-    grid-column: 4 / 6;
+    grid-column: 5 / 8;
 }
 
 .student__group
 {
-    grid-column: 6 / 7;
+    grid-column: 8 / 9;
 }
 
 .student__age
 {
-    grid-column: 7 / 8;
+    grid-column: 9 / 10;
 }
 
 .student__rating
 {
-    grid-column: 8 / 9;
+    grid-column: 10 / 11;
 }
 
 .student__color
 {
-    grid-column: 9 / 10;
+    grid-column: 11 / 12;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    justify-self: center;
 }
 
-.student__delete-button
+.student__deleteButton
 {
-    grid-column: 10 / 11;
+    grid-column: 12 / 13;
+    width: 30px;
+    height: 30px;
+    background: url('/images/basket.svg') no-repeat center;
+    box-shadow: 0 0 16.3715px #E6E6E6;
+    border-radius: 10px;
+    border: none;
+    justify-self: center;
 }

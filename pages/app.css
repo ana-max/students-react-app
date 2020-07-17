@@ -23,17 +23,10 @@ body
     display: flex;
 }
 
-.back-to-list
+.students-list
 {
-    display: flex;
-    margin: 25px 0 0;
-}
-
-.back-to-list__text
-{
-    margin-left: 16px;
-    font-size: 12px;
-    line-height: 20px;
+    box-shadow: 0 7px 64px #EDEDED;
+    border-radius: 6px;
 }
 
 .new-student
@@ -115,9 +108,14 @@ body
     flex-direction: column;
 }
 
-.select__head:checked + .color-section
+.select__head:checked + .palette
 {
     display: block;
+}
+
+.palette
+{
+    display: none;
 }
 
 .select__item-label
@@ -154,88 +152,4 @@ body
 .favourite-color
 {
     grid-column: 2 / 3;
-}
-
-.color-section
-{
-    display: none;
-    width: 380px;
-    height: 70px;
-    padding: 20px 20px 20px 25px;
-    box-sizing: border-box;
-    box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
-    border-radius: 6px;
-    margin-top: 6px;
-    position: absolute;
-    z-index: 100;
-}
-
-.circle
-{
-    display: none;
-}
-
-.circle:checked + .color-label
-{
-    border: 1px solid #000;
-    box-shadow: 0 0 5px #FFD700;
-}
-
-.color-label
-{
-    margin: 0 20px 0 0;
-    display: inline-block;
-    outline:none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.blue-circle
-{
-    background: #49C2E8;
-}
-
-.red-circle
-{
-    background: #E25B5B;
-}
-
-.green-circle
-{
-    background: #83C872;
-}
-
-.yellow-circle
-{
-    background: #F7FB53;
-}
-
-.black-circle
-{
-    background: #000;
-}
-
-.orange-circle
-{
-    background: #EFA638;
-}
-
-.rainbow-circle
-{
-    margin-right: 0;
-    background: url('/images/rainbow.png') no-repeat center;
-}
-
-.create-button
-{
-    width: 380px;
-    height: 50px;
-    background: #49C2E8;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 20px;
-    margin-top: 20px;
 }

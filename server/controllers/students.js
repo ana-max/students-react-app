@@ -16,13 +16,13 @@ module.exports.getAllStudents = async (req, res) => {
 module.exports.createStudent = async (req, res) => {
     console.info(req.body, req);
     const photoUrl = req.file ? req.file.filename : '';
-    const { name, email, rating, age, speciality, group, gender } = req.query;
+    const { name, email, rating, age, speciality, group, gender, colorHex } = req.query;
     const imagePath = path.join(process.cwd(), 'public/images', photoUrl);
     const photoData = photoUrl ? {
          data: fs.readFileSync(imagePath).toString('base64')
     } : Buffer.from('');
     await Student.create({
-        name, email, speciality, group, gender, rating, age, photoUrl, photoData
+        name, email, speciality, group, gender, rating, age, photoUrl, photoData, colorHex
     });
 }
 

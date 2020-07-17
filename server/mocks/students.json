@@ -5,7 +5,8 @@
     "age": 21,
     "photoUrl": "avatar1.png",
     "speciality": "Прикладная информатика",
-    "group": "ПИ-101"
+    "group": "ПИ-101",
+    "colorHex": "#83C872"
   },
   {
     "name": "Степанова Анна",
@@ -13,7 +14,8 @@
     "age": 20,
     "photoUrl": "avatar2.png",
     "speciality": "Прикладная информатика",
-    "group": "ПИ-101"
+    "group": "ПИ-101",
+    "colorHex": "#49C2E8"
   },
   {
     "name": "Сундар Пичаи",
@@ -21,7 +23,8 @@
     "age": 19,
     "photoUrl": "avatar3.png",
     "speciality": "Прикладная информатика",
-    "group": "ПИ-101"
+    "group": "ПИ-101",
+    "colorHex": "#000000"
   },
   {
     "name": "Алексеев Александр",
@@ -29,6 +32,7 @@
     "age": 22,
     "photoUrl": "avatar4.png",
     "speciality": "Прикладная информатика",
-    "group": "ПИ-101"
+    "group": "ПИ-101",
+    "colorHex": "#rainbow"
   }
 ]

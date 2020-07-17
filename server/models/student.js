@@ -6,7 +6,8 @@ const studentSchema = new Schema({
         required: true
     },
     rating: {
-        type: Number
+        type: Number,
+        required: true
     },
     age: {
         type: Number,
@@ -19,10 +20,16 @@ const studentSchema = new Schema({
         data: String
     },
     speciality: {
-        type: String
+        type: String,
+        required: true
+    },
+    colorHex: {
+        type: String,
+        required: true
     },
     group: {
-        type: String
+        type: String,
+        required: true
     }
 });
 
