@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import {deleteStudent, getStudents, searchStudents, sortStudents} from '../server/common/utils';
 import Student from '../components/student/student';
-import StudentAddButton from '../components/student_add_button/button';
+import StudentAddButton from '../components/student-add-button/button';
 import SearchLine from '../components/search-line/search-line';
 import SortLine from '../components/sort-line/sort-line';
 
