@@ -6,14 +6,12 @@ export const getStudents = (params) => {
         .then(response => response.json());
 };
 
-export const createStudent = (params) => {
+export const createStudent = (params, body) => {
     const path = '/api/students';
     const url = createUrl(path, params);
     return fetch(url, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body
     });
 };
 

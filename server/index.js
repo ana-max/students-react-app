@@ -16,7 +16,7 @@ const publicDir = path.join(__dirname, 'public');
 const app = express();
 
 app.use(express.static(publicDir));
-app.use(multer({storage: storageConfig, fileFilter: fileFilter}).single("filedata"));
+app.use(multer({storage: storageConfig, fileFilter: fileFilter}).single('avatar'));
 app.use(express.json());
 
 const render = pageName => (req, res) => app.render(req, res, `/${pageName}`);

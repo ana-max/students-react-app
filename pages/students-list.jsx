@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import {getStudents, searchStudents, sortStudents} from '../server/common/utils';
 import Student from '../components/student/student';
 import StudentAddButton from '../components/student_add_button/button';
-import {DEFAULT_STUDENT} from "../server/common/consts";
 
 export default class StudentsPage extends Component {
     state = {
@@ -87,6 +86,7 @@ export default class StudentsPage extends Component {
                 <Link to={`/students/add`}>
                     <StudentAddButton />
                 </Link>
+                <p className='students-list-logo'>Студенты</p>
                 <button onClick={this.handleSearch}>Искать</button>
                 <input type='text' onChange={this.changeInputSearch}/>
                 <select onChange={this.handleSortParameterChange}>
@@ -104,7 +104,7 @@ export default class StudentsPage extends Component {
                         <Student key={student._id}
                                  id={student._id}
                                  photoData={student.photoData}
-                                 fio={student.fio}
+                                 name={student.name}
                                  speciality={student.speciality}
                                  group={student.group}
                                  age={student.age}

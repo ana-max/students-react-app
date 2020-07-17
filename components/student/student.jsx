@@ -15,7 +15,7 @@ export default function Student(student) {
                 }
 
             </section>
-            <section className={styles.student__name}>{`${student.fio}`}</section>
+            <section className={styles.student__name}>{`${student.name}`}</section>
             <section className={styles.student__speciality}>{student.speciality}</section>
             <section className={styles.student__group}>{student.group}</section>
             <section className={styles.student__age}>{student.age}</section>
