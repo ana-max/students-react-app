@@ -18,6 +18,11 @@ body
     line-height: 50px;
 }
 
+.search-sort-block
+{
+    display: flex;
+}
+
 .back-to-list
 {
     display: flex;

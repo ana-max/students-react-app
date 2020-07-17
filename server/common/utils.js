@@ -29,6 +29,15 @@ export const sortStudents = (params) => {
         .then(response => response.json());
 };
 
+export const deleteStudent = (params) => {
+    const path = '/api/delete-students';
+    const url = createUrl(path, params);
+    return fetch(url, {
+        method: 'DELETE'
+    })
+        .then(response => response.json());
+};
+
 const createUrl = (path, params) => {
     const url = new URL(window.location.toString());
     url.pathname = path;

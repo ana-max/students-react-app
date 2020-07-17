@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom'
 
-import {getStudents, searchStudents, sortStudents} from '../server/common/utils';
+import {deleteStudent, getStudents, searchStudents, sortStudents} from '../server/common/utils';
 import Student from '../components/student/student';
 import StudentAddButton from '../components/student_add_button/button';
+import SearchLine from '../components/search-line/search-line';
+import SortLine from '../components/sort-line/sort-line';
 
 export default class StudentsPage extends Component {
     state = {
@@ -13,9 +15,7 @@ export default class StudentsPage extends Component {
         students: [],
         isError: false,
         loading: false,
-        hasMore: true,
-        sortKey: 'fio',
-        searchName: ''
+        hasMore: true
     }
 
     componentDidMount() {
@@ -39,22 +39,9 @@ export default class StudentsPage extends Component {
             .catch(() => this.setState({ isError: true }));
     }
 
-    handleSortParameterChange = event => {
-        this.setState({
-            sortKey: event.target.value
-        })
-    }
-
-    changeInputSearch = (event) => {
-        event.preventDefault();
-        this.setState({
-            searchName: event.target.value
-        })
-    }
-
-    handleSortClick = () => {
+    sortStudents = (sortKey) => {
         const queryParams = {
-            sortKey: this.state.sortKey
+            sortKey: sortKey
         }
         sortStudents(queryParams).then(students => this.setState({
             students: students,
@@ -62,9 +49,9 @@ export default class StudentsPage extends Component {
         }));
     }
 
-    handleSearch = () => {
+    searchStudents = (searchName) => {
         const queryParams = {
-            fio: this.state.searchName
+            name: searchName
         };
         searchStudents(queryParams)
             .then(students => {
@@ -73,6 +60,15 @@ export default class StudentsPage extends Component {
                     hasMore: false
                 })
             })
+            .catch(() => this.setState({ isError: true }));
+    }
+
+    deleteStudent = (id) => {
+        const queryParams = {
+            id: id
+        };
+        deleteStudent(queryParams)
+            .then(this.fetchStudents)
             .catch(() => this.setState({ isError: true }));
     }
 
@@ -87,14 +83,10 @@ export default class StudentsPage extends Component {
                     <StudentAddButton />
                 </Link>
                 <p className='students-list-logo'>Студенты</p>
-                <button onClick={this.handleSearch}>Искать</button>
-                <input type='text' onChange={this.changeInputSearch}/>
-                <select onChange={this.handleSortParameterChange}>
-                    <option value={'fio'}>Имя</option>
-                    <option value={'rating'}>Рейтинг</option>
-                    <option value={'age'}>Возраст</option>
-                </select>
-                <button onClick={this.handleSortClick}>Сортировать</button>
+                <div className='search-sort-block'>
+                    <SearchLine searchStudents={this.searchStudents} />
+                    <SortLine sortStudents={this.sortStudents} />
+                </div>
                 <InfiniteScroll next={this.fetchStudents.bind(this)}
                                 hasMore={hasMore}
                                 dataLength={students.length}
@@ -102,13 +94,8 @@ export default class StudentsPage extends Component {
                                 >
                     {students.map(student =>
                         <Student key={student._id}
-                                 id={student._id}
-                                 photoData={student.photoData}
-                                 name={student.name}
-                                 speciality={student.speciality}
-                                 group={student.group}
-                                 age={student.age}
-                                 rating={student.rating}
+                                 student={student}
+                                 deleteStudent={this.deleteStudent}
                         />)}
                 </InfiniteScroll>
             </>

@@ -1,0 +1,85 @@
+.sort
+{
+    display: flex;
+    font-size: 16px;
+    line-height: 20px;
+    width: 180px;
+    margin: 0 0 0 20px;
+    box-shadow: 0 7px 64px #EDEDED;
+    border-radius: 6px;
+    position: relative;
+}
+
+.line
+{
+    height: 48px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.button
+{
+    height: 48px;
+    width: 48px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    outline: none;
+    border: none;
+    background: url('/images/sort-button.svg') no-repeat center;
+}
+
+.line__list
+{
+    padding: 0 11px;
+    display: none;
+    position: absolute;
+    margin-top: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 100;
+}
+
+.line__head
+{
+    display: none;
+}
+
+.line__head:checked + .line__list
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.line__headLabel
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.line__item
+{
+    display: none;
+}
+
+.selectedItem
+{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.line__item:checked + .line__itemLabel .selectedItem
+{
+    background: #EBF8FC url('/images/selected-item.svg') no-repeat center right;
+}

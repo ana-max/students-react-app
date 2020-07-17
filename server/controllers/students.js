@@ -28,7 +28,7 @@ module.exports.createStudent = async (req, res) => {
 
 module.exports.searchStudents = async (req, res) => {
     await Student
-        .find({ fio: { $regex: req.query.fio } })
+        .find({ name: { $regex: req.query.name } })
         .exec((err, students) => res.json(students));
 }
 
@@ -41,4 +41,10 @@ module.exports.sortStudents = async (req, res) => {
         .find()
         .sort({ [sortKey]: 1 })
         .exec((err, students) => res.json(students));
+}
+
+module.exports.deleteStudent = async (req, res) => {
+    const id = req.query.id;
+    console.info(id)
+    await Student.deleteOne({_id: id});
 }
