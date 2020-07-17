@@ -29,14 +29,14 @@ export default class StudentsPage extends Component {
             offset: this.state.offset
         };
         getStudents(queryParams)
-            .then((students) => this.setState(
+            .then((students) => this.setState(state => (
                 {
                     loading: true,
                     isError: false,
-                    students: this.state.students.concat(students),
-                    offset: this.state.offset + this.state.limit,
-                    hasMore: students.length === this.state.limit
-                }))
+                    students: state.students.concat(students),
+                    offset: state.offset + state.limit,
+                    hasMore: students.length === state.limit
+                })))
             .catch(() => this.setState({ isError: true }));
     }
 
@@ -64,13 +64,15 @@ export default class StudentsPage extends Component {
             .catch(() => this.setState({ isError: true }));
     }
 
-    deleteStudent = (studentId) => {
+    deleteStudentById = (studentId) => {
         const queryParams = {
             id: studentId
         };
         deleteStudent(queryParams)
-            .then(this.fetchStudents)
             .catch(() => this.setState({ isError: true }));
+        this.setState(state => ({
+            students: state.students.filter(student => student._id !== studentId)
+        }));
     }
 
     render() {
@@ -78,6 +80,7 @@ export default class StudentsPage extends Component {
             return <p>Загрузка...</p>
         }
         const { students, hasMore } = this.state;
+        console.info('state', this.state)
         return (
             <>
                 <Link to={`/students/add`}>
@@ -98,7 +101,7 @@ export default class StudentsPage extends Component {
                         {students.map(student =>
                             <Student key={student._id}
                                      student={student}
-                                     deleteStudent={this.deleteStudent}
+                                     deleteStudent={this.deleteStudentById}
                             />)}
                     </InfiniteScroll>
                 </section>

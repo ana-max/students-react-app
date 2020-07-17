@@ -12,7 +12,7 @@ export const createStudent = (params, body) => {
     return fetch(url, {
         method: 'POST',
         body
-    });
+    }).then(() => history.pushState('', '','/'));
 };
 
 export const searchStudents = (params) => {
@@ -35,7 +35,6 @@ export const deleteStudent = (params) => {
     return fetch(url, {
         method: 'DELETE'
     })
-        .then(response => response.json());
 };
 
 const createUrl = (path, params) => {

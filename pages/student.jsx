@@ -40,8 +40,10 @@ export default class StudentAddingPage extends Component {
         });
     }
 
-    fetchStudent = async () => {
+    fetchStudent = async (event) => {
         console.info(this.state);
+        // event.preventDefault();
+        event.stopPropagation();
         const { name, email, speciality, group, rating, gender, age, colorHex } = this.state;
         const queryParams = { name, email, speciality, group, rating, gender, age, colorHex };
         const body = new FormData();

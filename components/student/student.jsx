@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import styles from './student.module.css';
 
 export default class Student extends Component {
-
     render() {
         const { student } = this.props;
         const colorStyle = {
@@ -12,7 +11,6 @@ export default class Student extends Component {
                 'url(\'/images/rainbow.png\') no-repeat center' :
                 student.colorHex
         }
-        console.info(student);
         return (
             <section className={styles.student} key={student.id}>
                 <section className={styles.student__image}>

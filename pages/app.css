@@ -108,6 +108,12 @@ body
     flex-direction: column;
 }
 
+.select__head-label:focus ~ .select__list
+{
+    display: flex;
+    flex-direction: column;
+}
+
 .select__head:checked + .palette
 {
     display: block;

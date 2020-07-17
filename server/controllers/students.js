@@ -14,7 +14,6 @@ module.exports.getAllStudents = async (req, res) => {
 }
 
 module.exports.createStudent = async (req, res) => {
-    console.info(req.body, req);
     const photoUrl = req.file ? req.file.filename : '';
     const { name, email, rating, age, speciality, group, gender, colorHex } = req.query;
     const imagePath = path.join(process.cwd(), 'public/images', photoUrl);

@@ -34,5 +34,50 @@
     "speciality": "Прикладная информатика",
     "group": "ПИ-101",
     "colorHex": "#rainbow"
+  },
+  {
+    "name": "Захарова Анастасия",
+    "rating": 72,
+    "age": 21,
+    "photoUrl": "avatar5.png",
+    "speciality": "Прикладная информатика",
+    "group": "ПИ-101",
+    "colorHex": "#F7FB53"
+  },
+  {
+    "name": "Третьяков Никита",
+    "rating": 34,
+    "age": 21,
+    "photoUrl": "avatar6.png",
+    "speciality": "Прикладная информатика",
+    "group": "ПИ-101",
+    "colorHex": "#E25B5B"
+  },
+  {
+    "name": "Дубровская Ксения",
+    "rating": 93,
+    "age": 20,
+    "photoUrl": "avatar7.png",
+    "speciality": "Прикладная информатика",
+    "group": "ПИ-101",
+    "colorHex": "#EFA638"
+  },
+  {
+    "name": "Сахаров Николай",
+    "rating": 34,
+    "age": 19,
+    "photoUrl": "avatar8.png",
+    "speciality": "Прикладная информатика",
+    "group": "ПИ-101",
+    "colorHex": "#49C2E8"
+  },
+  {
+    "name": "Иванов Иван Иванович",
+    "rating": 55,
+    "age": 21,
+    "photoUrl": "avatar9.png",
+    "speciality": "Прикладная информатика",
+    "group": "ПИ-101",
+    "colorHex": "#83C872"
   }
 ]
