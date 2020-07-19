@@ -15,10 +15,9 @@ export default class Avatar extends Component {
             this.setState({
                 photoUrl: file.name,
                 imagePreviewUrl: reader.result
-            });
+            }, () => this.props.changeImage(file));
         }
         reader.readAsDataURL(file);
-        this.props.changeImage(file);
     }
 
     render() {

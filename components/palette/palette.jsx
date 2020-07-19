@@ -17,8 +17,6 @@ export default class Palette extends Component {
     }
 
     render() {
-        const { favouriteColor } = this.state;
-
         return (
             <section className={styles.colorSection} onClick={this.changeColor}>
                 <input type='radio' id='49C2E8' name='color' className={styles.circle} value='Голубой'/>

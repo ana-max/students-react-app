@@ -1,30 +1,78 @@
 
 module.exports.ALL_SPECIALITIES = [
     {
-        name: 'Прикладная информатика',
-        id: 1
+        id: 1,
+        title: 'Прикладная информатика',
+        selected: false,
+        key: 'speciality'
     },
     {
-        name: 'Математика и компьютерные науки',
-        id: 2
+        id: 2,
+        title: 'Математика и компьютерные науки',
+        selected: false,
+        key: 'speciality'
     },
     {
-        name: 'Фундаментальная информатика',
-        id: 3
+        id: 3,
+        title: 'Фундаментальная информатика',
+        selected: false,
+        key: 'speciality'
     }
 ]
 
 module.exports.ALL_GROUPS = [
     {
-        name: 'ПИ-101',
-        id: 1
+        id: 1,
+        title: 'ПИ-101',
+        selected: false,
+        key: 'group'
     },
     {
-        name: 'КН-101',
-        id: 2
+        id: 2,
+        title: 'КН-101',
+        selected: false,
+        key: 'group'
     },
     {
-        name: 'ФИИТ-101',
-        id: 3
+        id: 3,
+        title: 'ФИИТ-101',
+        selected: false,
+        key: 'group'
+    }
+]
+
+module.exports.ALL_GENDERS = [
+    {
+        id: 1,
+        title: 'мужской',
+        selected: false,
+        key: 'gender'
+    },
+    {
+        id: 2,
+        title: 'женский',
+        selected: false,
+        key: 'gender'
+    }
+]
+
+module.exports.ALL_SORT_KEYS = [
+    {
+        id: 1,
+        title: 'Имя',
+        selected: true,
+        key: 'sort'
+    },
+    {
+        id: 2,
+        title: 'Рейтинг',
+        selected: false,
+        key: 'sort'
+    },
+    {
+        id: 3,
+        title: 'Возраст',
+        selected: false,
+        key: 'sort'
     }
 ]

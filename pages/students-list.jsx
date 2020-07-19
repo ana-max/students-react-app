@@ -24,6 +24,7 @@ export default class StudentsPage extends Component {
     }
 
     fetchStudents = () => {
+        console.info('fetch', this.state.offset)
         const queryParams = {
             limit: this.state.limit,
             offset: this.state.offset
@@ -80,7 +81,6 @@ export default class StudentsPage extends Component {
             return <p>Загрузка...</p>
         }
         const { students, hasMore } = this.state;
-        console.info('state', this.state)
         return (
             <>
                 <Link to={`/students/add`}>

@@ -12,7 +12,7 @@ export const createStudent = (params, body) => {
     return fetch(url, {
         method: 'POST',
         body
-    }).then(() => history.pushState('', '','/'));
+    }).then(response => response.json());
 };
 
 export const searchStudents = (params) => {

@@ -1,0 +1,68 @@
+.selectLabel
+{
+    font-size: 15px;
+}
+
+.wrapper
+{
+    position: relative;
+    margin: 8px 0 20px;
+    width: 380px;
+    height: 48px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 7px 64px #EDEDED;
+    font-size: 16px;
+    color: #B3B3B3;
+    outline: none;
+    border: none;
+}
+
+.header
+{
+    height: 100%;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    background: url('/images/select-arrow.svg') no-repeat center right;
+    margin-bottom: 0;
+}
+
+.list
+{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 0 11px;
+    margin-top: 6px;
+    width: 380px;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 100;
+}
+
+.list__item
+{
+    display: none;
+}
+
+.listItem__label
+{
+    padding: 5px 11px;
+}
+
+.selectedItem,
+.nonSelectedItem
+{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.selectedItem
+{
+    background: #EBF8FC url('/images/selected-item.svg') no-repeat center right;
+}
