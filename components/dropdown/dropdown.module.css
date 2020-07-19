@@ -1,19 +1,18 @@
 .selectLabel
 {
     font-size: 15px;
+    margin: 0 0 8px;
+    color: #000;
 }
 
 .wrapper
 {
     position: relative;
-    margin: 8px 0 20px;
-    width: 380px;
-    height: 48px;
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     border-radius: 6px;
     box-shadow: 0 7px 64px #EDEDED;
-    font-size: 16px;
-    color: #B3B3B3;
     outline: none;
     border: none;
 }
@@ -24,7 +23,6 @@
     padding-left: 20px;
     display: flex;
     align-items: center;
-    background: url('/images/select-arrow.svg') no-repeat center right;
     margin-bottom: 0;
 }
 
@@ -35,10 +33,11 @@
     position: absolute;
     padding: 0 11px;
     margin-top: 6px;
-    width: 380px;
+    width: 100%;
     box-sizing: border-box;
     background: #fff;
     z-index: 100;
+    color: #000;
 }
 
 .list__item

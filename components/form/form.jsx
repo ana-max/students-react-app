@@ -67,10 +67,6 @@ export default class Form extends Component {
         const {name, email, speciality, group, rating, gender, age, color} = this.state;
         const isButtonDisabled = !name || !email || !speciality || !group || !rating || !gender || !age || !color;
 
-        if (this.state.shouldRedirect) {
-            return <Redirect to={'/'} />
-        }
-
         return (
             <div className={styles.form}>
                 <section className={styles.name}>

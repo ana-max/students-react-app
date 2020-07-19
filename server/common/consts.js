@@ -61,18 +61,18 @@ module.exports.ALL_SORT_KEYS = [
         id: 1,
         title: 'Имя',
         selected: true,
-        key: 'sort'
+        key: 'sortKey'
     },
     {
         id: 2,
         title: 'Рейтинг',
         selected: false,
-        key: 'sort'
+        key: 'sortKey'
     },
     {
         id: 3,
         title: 'Возраст',
         selected: false,
-        key: 'sort'
+        key: 'sortKey'
     }
 ]

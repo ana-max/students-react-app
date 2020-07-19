@@ -35,10 +35,11 @@ module.exports.searchStudents = async (req, res) => {
 
 module.exports.sortStudents = async (req, res) => {
     const sortKey = req.query.sortKey;
+    const sortByAscending = req.query.sortByAscending;
 
     await Student
         .find()
-        .sort({ [sortKey]: 1 })
+        .sort({ [sortKey]: sortByAscending === 'true' ? 1 : -1 })
         .exec((err, students) => res.json(students));
 }
 

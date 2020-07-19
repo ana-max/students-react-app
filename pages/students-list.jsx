@@ -12,7 +12,8 @@ import StudentsListHeader from '../components/students-list-header/header';
 const INITIAL_STATE = {
     students: [],
     isError: false,
-    loading: false
+    loading: false,
+    sortByAscending: true
 }
 
 export default class StudentsPage extends Component {
@@ -25,7 +26,6 @@ export default class StudentsPage extends Component {
     componentWillReceiveProps(nextProps) {
         if (!nextProps.newStudent) return;
         this.setState(state => ({
-            ...state,
             students: state.students.concat([nextProps.newStudent])
         }));
     }
@@ -45,11 +45,13 @@ export default class StudentsPage extends Component {
 
     sortStudents = (sortKey) => {
         const queryParams = {
-            sortKey: sortKey
+            sortKey: sortKey,
+            sortByAscending: this.state.sortByAscending
         }
-        sortStudents(queryParams).then(students => this.setState({
+        sortStudents(queryParams).then(students => this.setState(state => ({
+            sortByAscending: !state.sortByAscending,
             students: students
-        }));
+        })));
     }
 
     searchStudents = (searchName) => {

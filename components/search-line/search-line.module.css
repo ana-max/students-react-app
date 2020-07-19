@@ -3,6 +3,7 @@
     display: flex;
     font-size: 16px;
     line-height: 20px;
+    border-radius: 6px;
     box-shadow: 0 7px 64px #EDEDED;
     margin: 0;
     width: calc(100% - 200px);

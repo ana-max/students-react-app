@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import styles from './sort-line.module.css';
+import Dropdown from "../dropdown/dropdown";
+import {ALL_SORT_KEYS} from "../../server/common/consts";
 
 export default class SortLine extends Component {
     state = {
@@ -19,27 +21,25 @@ export default class SortLine extends Component {
         this.props.sortStudents(this.state.sortKey);
     }
 
+    toggleSelected = (id, key) => {
+        const otherKeys = ALL_SORT_KEYS.filter(key => key.id !== id && key.selected === true);
+        otherKeys.map(key => key.selected = false);
+        const sortKey = ALL_SORT_KEYS.find(key => key.id === id);
+        sortKey.selected = !sortKey.selected
+        this.setState({
+            [key]: sortKey.selected ? sortKey.title : ''
+        })
+    }
+
     render() {
         return (
-            <section className={styles.sort}>
-                <section className={styles.line}>
-                    <label htmlFor='sortKey' className={styles.line__headLabel}>{this.state.sortKeyValue}</label>
-                    <input type='checkbox' id='sortKey' className={styles.line__head}/>
-                    <ul className={styles.line__list} onClick={this.handleSortParameterChange}>
-                        <input type='radio' name='key' className={styles.line__item} id='name' value='Имя' />
-                        <label htmlFor='name' className={styles.line__itemLabel} >
-                            <p className={styles.selectedItem}>Имя</p>
-                        </label>
-                        <input type='radio' name='key' className={styles.line__item}  id='rating' value='Рейтинг' />
-                        <label htmlFor='rating' className={styles.line__itemLabel}>
-                            <p className={styles.selectedItem}>Рейтинг</p>
-                        </label>
-                        <input type='radio' name='key' className={styles.line__item}  id='age' value='Возраст' />
-                        <label htmlFor='age' className={styles.line__itemLabel}>
-                            <p className={styles.selectedItem}>Возраст</p>
-                        </label>
-                    </ul>
-                </section>
+            <section className={styles.line}>
+                <Dropdown
+                    label=''
+                    title='Имя'
+                    list={ALL_SORT_KEYS}
+                    toggleItem={this.toggleSelected}
+                />
                 <button className={styles.button} onClick={this.handleSortClick} />
             </section>
         )
