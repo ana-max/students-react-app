@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-import { createStudent } from '../server/common/utils';
+import { createStudent, getStudents } from '../server/common/utils';
 import Avatar from '../components/avatar/avatar';
 import BackToListLink from '../components/back-to-list-link/back-to-list-link';
 import Form from "../components/form/form";
@@ -21,7 +22,7 @@ export default class StudentAddingPage extends Component {
         const queryParams = { name, email, speciality, group, rating, gender, age, colorHex };
         const body = new FormData();
         body.append('avatar', this.state.image);
-        await createStudent(queryParams, body);
+        this.props.createStudent(queryParams, body);
     }
 
     render() {

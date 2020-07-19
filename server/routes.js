@@ -5,7 +5,8 @@ const multer  = require("multer");
 module.exports = (app) => {
     app.get('/api/students*', getAllStudents)
     app.post('/api/students*', createStudent);
+    app.delete('/api/students*', deleteStudent);
+
     app.get('/api/search-students*', searchStudents);
     app.get('/api/sort-students*', sortStudents);
-    app.delete('/api/delete-student*', deleteStudent);
 };

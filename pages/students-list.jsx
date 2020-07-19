@@ -9,27 +9,29 @@ import SearchLine from '../components/search-line/search-line';
 import SortLine from '../components/sort-line/sort-line';
 import StudentsListHeader from '../components/students-list-header/header';
 
+const INITIAL_STATE = {
+    students: [],
+    isError: false,
+    loading: false
+}
+
 export default class StudentsPage extends Component {
-    state = {
-        limit: 25,
-        offset: 0,
-        students: [],
-        isError: false,
-        loading: false,
-        hasMore: true
-    }
+    state = INITIAL_STATE
 
     componentDidMount() {
         this.fetchStudents();
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.newStudent) return;
+        this.setState(state => ({
+            ...state,
+            students: state.students.concat([nextProps.newStudent])
+        }));
+    }
+
     fetchStudents = () => {
-        console.info('fetch', this.state.offset)
-        const queryParams = {
-            limit: this.state.limit,
-            offset: this.state.offset
-        };
-        getStudents(queryParams)
+        getStudents()
             .then((students) => this.setState(state => (
                 {
                     loading: true,
@@ -46,8 +48,7 @@ export default class StudentsPage extends Component {
             sortKey: sortKey
         }
         sortStudents(queryParams).then(students => this.setState({
-            students: students,
-            hasMore: false
+            students: students
         }));
     }
 
@@ -93,17 +94,11 @@ export default class StudentsPage extends Component {
                 </div>
                 <StudentsListHeader />
                 <section className='students-list'>
-                    <InfiniteScroll next={this.fetchStudents.bind(this)}
-                                    hasMore={hasMore}
-                                    dataLength={students.length}
-                                    loader={<h4>Loading...</h4>}
-                    >
-                        {students.map(student =>
-                            <Student key={student._id}
-                                     student={student}
-                                     deleteStudent={this.deleteStudentById}
-                            />)}
-                    </InfiniteScroll>
+                    {students.map(student =>
+                        <Student key={student._id}
+                                 student={student}
+                                 deleteStudent={this.deleteStudentById}
+                        />)}
                 </section>
             </>
         );

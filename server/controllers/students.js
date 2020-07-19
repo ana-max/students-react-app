@@ -1,29 +1,30 @@
 const Student = require('../models/student');
 const path = require('path');
 const fs = require('fs');
+const sharp = require('sharp');
 
 module.exports.getAllStudents = async (req, res) => {
-    const limit = Number(req.query.limit);
-    const skip = Number(req.query.offset);
-
     await Student
                 .find()
-                .limit(limit)
-                .skip(skip)
                 .exec((err, students) => res.json(students));
 }
 
 module.exports.createStudent = async (req, res) => {
     console.info(req);
     const photoUrl = req.file ? req.file.filename : '';
-    const { name, email, rating, age, speciality, group, gender, colorHex } = req.query;
     const imagePath = path.join(process.cwd(), 'public/images', photoUrl);
-    const photoData = photoUrl ? {
-         data: fs.readFileSync(imagePath).toString('base64')
-    } : Buffer.from('');
-    await Student.create({
-        name, email, speciality, group, gender, rating, age, photoUrl, photoData, colorHex
-    });
+    const outputFile = `${Date.now()}output.jpg`;
+    await sharp(imagePath).resize({ width: 36 }).toFile(outputFile)
+        .then(async () => {
+            const photoData = photoUrl ? {
+                data: fs.readFileSync(outputFile).toString('base64')
+            } : Buffer.from('');
+            await Student.create({
+                ...req.query, photoUrl, photoData
+            }, (err, student) => {
+                res.json(student);
+            });
+        })
 }
 
 module.exports.searchStudents = async (req, res) => {
@@ -33,8 +34,6 @@ module.exports.searchStudents = async (req, res) => {
 }
 
 module.exports.sortStudents = async (req, res) => {
-    const limit = Number(req.query.limit);
-    const skip = Number(req.query.offset);
     const sortKey = req.query.sortKey;
 
     await Student

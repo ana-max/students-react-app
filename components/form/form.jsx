@@ -4,6 +4,7 @@ import styles from './form.module.css';
 import Palette from '../palette/palette';
 import {ALL_SPECIALITIES, ALL_GROUPS, ALL_GENDERS} from '../../server/common/consts';
 import Dropdown from "../dropdown/dropdown";
+import {Redirect} from "react-router";
 import {Link} from "react-router-dom";
 
 const INITIAL_STATE = {
@@ -25,12 +26,12 @@ export default class Form extends Component {
         this.setState({[event.target.id]: event.target.value});
     }
 
-    handleSubmit = () => {
-        this.props.onSubmit(this.state);
+    handleSubmit = (event) => {
         this.setState(INITIAL_STATE);
         ALL_SPECIALITIES.map(speciality => speciality.selected = false);
         ALL_GROUPS.map(group => group.selected = false);
         ALL_GENDERS.map(gender => gender.selected = false);
+        this.props.onSubmit(this.state);
     }
 
     toggleSelectedSpeciality = (id, key) => {
@@ -65,7 +66,12 @@ export default class Form extends Component {
     render() {
         const {name, email, speciality, group, rating, gender, age, color} = this.state;
         const isButtonDisabled = !name || !email || !speciality || !group || !rating || !gender || !age || !color;
-        return(
+
+        if (this.state.shouldRedirect) {
+            return <Redirect to={'/'} />
+        }
+
+        return (
             <div className={styles.form}>
                 <section className={styles.name}>
                     <label className={styles.formField__label} htmlFor='name'>ФИО</label>
