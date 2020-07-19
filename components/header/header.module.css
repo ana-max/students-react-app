@@ -25,3 +25,11 @@
 {
     margin: 0;
 }
+
+@media screen and (max-width: 1000px) {
+    .logo
+    {
+        padding: 21px 29px;
+        width: 100%;
+    }
+}

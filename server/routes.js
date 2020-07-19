@@ -1,6 +1,4 @@
-
 const { getAllStudents, createStudent, searchStudents, sortStudents, deleteStudent } = require('./controllers/students');
-const multer  = require("multer");
 
 module.exports = (app) => {
     app.get('/api/students*', getAllStudents)

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom'
 
 import { deleteStudent, getStudents, searchStudents, sortStudents } from '../server/common/utils';
@@ -8,6 +7,7 @@ import StudentAddButton from '../components/student-add-button/button';
 import SearchLine from '../components/search-line/search-line';
 import SortLine from '../components/sort-line/sort-line';
 import StudentsListHeader from '../components/students-list-header/header';
+import Restart from '../components/restart/restart';
 
 const INITIAL_STATE = {
     students: [],
@@ -80,16 +80,21 @@ export default class StudentsPage extends Component {
     }
 
     render() {
+        if (this.state.isError) {
+            return <Restart />
+        }
+
         if (!this.state.loading) {
             return <p>Загрузка...</p>
         }
-        const { students, hasMore } = this.state;
+
+        const { students } = this.state;
         return (
             <>
+                <p className='students-list-logo'>Студенты</p>
                 <Link to={`/students/add`}>
                     <StudentAddButton />
                 </Link>
-                <p className='students-list-logo'>Студенты</p>
                 <div className='search-sort-block'>
                     <SearchLine searchStudents={this.searchStudents} />
                     <SortLine sortStudents={this.sortStudents} />

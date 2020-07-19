@@ -1,13 +1,13 @@
 import React, { Component }  from 'react';
 import { Helmet } from 'react-helmet';
-import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from '../components/header/header';
 import StudentsPage from './students-list';
 import StudentAddingPage from './student';
 
+import { createStudent } from '../server/common/utils';
 import './app.css';
-import {createStudent} from "../server/common/utils";
 
 export default class MyApp extends Component {
     state = {

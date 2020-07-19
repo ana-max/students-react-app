@@ -36,3 +36,9 @@ body
     line-height: 50px;
     margin: 31px 0 0;
 }
+
+@media screen and (max-width: 1000px) {
+    .content {
+        padding: 0 21px
+    }
+}

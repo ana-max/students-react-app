@@ -62,6 +62,21 @@
     grid-column: 2 / 3;
 }
 
+.gender
+{
+    grid-row: 1 / 2;
+}
+
+.age
+{
+    grid-row: 2 / 3;
+}
+
+.favouriteColor
+{
+    grid-row: 3 / 4;
+}
+
 .speciality,
 .group,
 .gender
@@ -92,3 +107,29 @@
     margin-top: 20px;
 }
 
+@media screen and (max-width: 1000px) {
+    .form
+    {
+        display: block;
+    }
+
+    .form__field
+    {
+        width: 100%;
+    }
+
+    .speciality,
+    .group,
+    .gender,
+    .button
+    {
+        width: 100%;
+    }
+
+    .speciality,
+    .group,
+    .gender
+    {
+        margin: 0 0 48px;
+    }
+}

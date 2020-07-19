@@ -1,7 +1,8 @@
-const Student = require('../models/student');
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
+
+const Student = require('../models/student');
 
 module.exports.getAllStudents = async (req, res) => {
     await Student
@@ -19,6 +20,7 @@ module.exports.createStudent = async (req, res) => {
             const photoData = photoUrl ? {
                 data: fs.readFileSync(outputFile).toString('base64')
             } : Buffer.from('');
+            fs.unlinkSync(outputFile);
             await Student.create({
                 ...req.query, photoUrl, photoData
             }, (err, student) => {
@@ -43,7 +45,7 @@ module.exports.sortStudents = async (req, res) => {
         .exec((err, students) => res.json(students));
 }
 
-module.exports.deleteStudent = async (req, res) => {
+module.exports.deleteStudent = async (req, _res) => {
     const id = req.query.id;
     console.info(id)
     await Student.deleteOne({_id: id});

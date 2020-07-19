@@ -1,0 +1,31 @@
+.restartBlock {
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    border: 2px solid #b3b3b3;
+    text-align: center;
+}
+
+.restartBlock__button {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #49C2E8 inset, 0 0 0 0 #EDEDED;
+    font-family: Gabriela, serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: 0.15s ease-in-out;
+}
+
+.restartBlock__button:hover {
+    box-shadow: 0 0 10px 0 #49C2E8 inset, 0 0 10px 4px #49C2E8;
+    color: #49C2E8;
+}
+
+.restartBlock__text {
+    font-family: Gabriela, serif;
+}

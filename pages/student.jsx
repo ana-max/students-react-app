@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
-import { createStudent, getStudents } from '../server/common/utils';
 import Avatar from '../components/avatar/avatar';
 import BackToListLink from '../components/back-to-list-link/back-to-list-link';
-import Form from "../components/form/form";
+import Form from '../components/form/form';
 
 export default class StudentAddingPage extends Component {
     state = {

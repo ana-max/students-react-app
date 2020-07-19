@@ -24,3 +24,9 @@
     background: url('/images/sort-button.svg') no-repeat center;
     z-index: 300;
 }
+
+@media screen and (max-width: 1000px) {
+    .line {
+        display: none;
+    }
+}

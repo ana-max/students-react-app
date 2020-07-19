@@ -1,5 +1,4 @@
-
-export const getStudents = (params) => {
+export const getStudents = () => {
     const url = '/api/students';
     return fetch(url)
         .then(response => response.json());

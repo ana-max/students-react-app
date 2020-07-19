@@ -33,3 +33,10 @@
     border: none;
     background: url('/images/search.svg') no-repeat center;
 }
+
+@media screen and (max-width: 1000px) {
+    .search
+    {
+        width: 100%;
+    }
+}

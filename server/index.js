@@ -1,12 +1,15 @@
-const { parse } = require('url');
 const path = require('path');
-const database = require('./database');
-const config = require('../config/default');
+const { parse } = require('url');
+
 const express = require('express');
 const nextjs = require('next');
+const multer = require('multer');
+
+const config = require('../config/default');
+const database = require('./database');
 const routes = require('./routes');
-const multer  = require("multer");
 const { storageConfig, fileFilter } = require('./uploads')
+
 require('isomorphic-fetch');
 
 const nextApp = nextjs({dev: process.env.NODE_ENV !== 'production'});
@@ -18,10 +21,6 @@ const app = express();
 app.use(express.static(publicDir));
 app.use(multer({storage: storageConfig, fileFilter: fileFilter}).single('avatar'));
 app.use(express.json());
-
-const render = pageName => (req, res) => app.render(req, res, `/${pageName}`);
-const handleRequest = (req, res) =>
-    nextApp.getRequestHandler()(req, res, parse(req.url, true));
 
 routes(app);
 

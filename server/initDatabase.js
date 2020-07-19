@@ -1,9 +1,10 @@
+const path = require('path');
+const fs = require('fs');
+
 const database = require('./database');
 const Student = require('./models/student');
 const students = require('./mocks/students.json');
-const mongoose = require('mongoose');
-const fs = require('fs')
-const path = require('path')
+
 
 database().then(info => {
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);

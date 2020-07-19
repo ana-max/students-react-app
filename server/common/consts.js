@@ -58,19 +58,19 @@ module.exports.ALL_GENDERS = [
 
 module.exports.ALL_SORT_KEYS = [
     {
-        id: 1,
+        id: 'name',
         title: 'Имя',
         selected: true,
         key: 'sortKey'
     },
     {
-        id: 2,
+        id: 'rating',
         title: 'Рейтинг',
         selected: false,
         key: 'sortKey'
     },
     {
-        id: 3,
+        id: 'age',
         title: 'Возраст',
         selected: false,
         key: 'sortKey'

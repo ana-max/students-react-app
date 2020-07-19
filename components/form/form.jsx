@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import styles from './form.module.css';
+import { ALL_SPECIALITIES, ALL_GROUPS, ALL_GENDERS } from '../../server/common/consts';
+import Dropdown from '../dropdown/dropdown';
 import Palette from '../palette/palette';
-import {ALL_SPECIALITIES, ALL_GROUPS, ALL_GENDERS} from '../../server/common/consts';
-import Dropdown from "../dropdown/dropdown";
-import {Redirect} from "react-router";
-import {Link} from "react-router-dom";
+import styles from './form.module.css';
 
 const INITIAL_STATE = {
     name: '',
@@ -77,28 +76,11 @@ export default class Form extends Component {
                     />
                 </section>
 
-                <section className={styles.gender}>
-                    <Dropdown
-                        label='Пол'
-                        title='Выберите'
-                        list={ALL_GENDERS}
-                        toggleItem={this.toggleSelectedGender}
-                    />
-                </section>
-
                 <section className={styles.email}>
                     <label className={styles.formField__label} htmlFor='email'>Email</label>
                     <input type='email' id='email' className={styles.form__field}
                            onChange={this.handleFieldChange} placeholder='Email'
                            autoComplete='off' required='required'
-                    />
-                </section>
-
-                <section className={styles.age}>
-                    <label className={styles.formField__label} htmlFor='age'>Возраст</label>
-                    <input type='number' id='age' className={styles.form__field}
-                           onChange={this.handleFieldChange} placeholder='Возраст'
-                           autoComplete='off' min='16' max='100' required='required'
                     />
                 </section>
 
@@ -110,20 +92,6 @@ export default class Form extends Component {
                         toggleItem={this.toggleSelectedSpeciality}
                     />
                 </section>
-
-                <section className={styles.favouriteColor}>
-                    <label className={styles.formField__label} htmlFor='favourite-color'>Любимый цвет</label>
-                    <section>
-                        <label htmlFor='favourite-color' className={styles.form__field}>
-                            {this.state.color || 'Выберите'}
-                        </label>
-                        <input type='checkbox' id='favourite-color' className={styles.colorSelect}/>
-                        <section className={styles.palette}>
-                            <Palette changeColor={this.changeColor} />
-                        </section>
-                    </section>
-                </section>
-
                 <section className={styles.group}>
                     <Dropdown
                         label='Группа'
@@ -139,6 +107,36 @@ export default class Form extends Component {
                            onChange={this.handleFieldChange} placeholder='Рейтинг'
                            autoComplete='off' min='0' required='required'
                     />
+                </section>
+
+                <section className={styles.gender}>
+                    <Dropdown
+                        label='Пол'
+                        title='Выберите'
+                        list={ALL_GENDERS}
+                        toggleItem={this.toggleSelectedGender}
+                    />
+                </section>
+
+                <section className={styles.age}>
+                    <label className={styles.formField__label} htmlFor='age'>Возраст</label>
+                    <input type='number' id='age' className={styles.form__field}
+                           onChange={this.handleFieldChange} placeholder='Возраст'
+                           autoComplete='off' min='16' max='100' required='required'
+                    />
+                </section>
+
+                <section className={styles.favouriteColor}>
+                    <label className={styles.formField__label} htmlFor='favourite-color'>Любимый цвет</label>
+                    <section>
+                        <label htmlFor='favourite-color' className={styles.form__field}>
+                            {this.state.color || 'Выберите'}
+                        </label>
+                        <input type='checkbox' id='favourite-color' className={styles.colorSelect}/>
+                        <section className={styles.palette}>
+                            <Palette changeColor={this.changeColor} />
+                        </section>
+                    </section>
                 </section>
 
                 <Link to={'/'} className={styles.routerLink}>
