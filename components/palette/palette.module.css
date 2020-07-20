@@ -1,5 +1,4 @@
-.colorSection
-{
+.colorSection {
     width: 380px;
     height: 70px;
     padding: 20px 20px 20px 25px;
@@ -11,53 +10,44 @@
     z-index: 120;
 }
 
-.circle
-{
+.circle {
     display: none;
 }
 
-.colorLabel
-{
+.colorLabel {
     margin: 0 20px 0 0;
     display: inline-block;
-    outline:none;
+    outline: none;
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
 
-.blueCircle
-{
+.blueCircle {
     background: #49C2E8;
 }
 
-.redCircle
-{
+.redCircle {
     background: #E25B5B;
 }
 
-.greenCircle
-{
+.greenCircle {
     background: #83C872;
 }
 
-.yellowCircle
-{
+.yellowCircle {
     background: #F7FB53;
 }
 
-.blackCircle
-{
+.blackCircle {
     background: #000;
 }
 
-.orangeCircle
-{
+.orangeCircle {
     background: #EFA638;
 }
 
-.rainbowCircle
-{
+.rainbowCircle {
     margin-right: 0;
     background: url('/images/rainbow.png') no-repeat center;
 }
@@ -71,16 +61,14 @@
         width: 100%;
     }
 
-    .colorSection
-    {
+    .colorSection {
         position: relative;
         display: flex;
         align-content: space-evenly;
         width: 100%;
     }
 
-    .colorLabel
-    {
+    .colorLabel {
         margin: 0 14px 0 0;
     }
 }

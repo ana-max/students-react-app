@@ -20,7 +20,6 @@ export default class MyApp extends Component {
                 newStudent: student
             })
         );
-        console.info(this.state.newStudent)
     }
 
     render() {

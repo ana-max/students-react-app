@@ -11,5 +11,5 @@ export default function BackToListLink() {
             </Link>
             <div className={styles.backToList__text}>НАЗАД К СПИСКУ СТУДЕНТОВ</div>
         </section>
-    )
+    );
 }

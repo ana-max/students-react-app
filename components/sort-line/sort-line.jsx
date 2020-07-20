@@ -15,7 +15,6 @@ export default class SortLine extends Component {
     }
 
     toggleSelected = (id, key) => {
-        console.info(id, key)
         const otherKeys = ALL_SORT_KEYS.filter(key => key.id !== id && key.selected === true);
         otherKeys.map(key => key.selected = false);
         const sortKey = ALL_SORT_KEYS.find(key => key.id === id);

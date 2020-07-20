@@ -18,7 +18,7 @@ module.exports.ALL_SPECIALITIES = [
         selected: false,
         key: 'speciality'
     }
-]
+];
 
 module.exports.ALL_GROUPS = [
     {
@@ -39,7 +39,7 @@ module.exports.ALL_GROUPS = [
         selected: false,
         key: 'group'
     }
-]
+];
 
 module.exports.ALL_GENDERS = [
     {
@@ -54,7 +54,7 @@ module.exports.ALL_GENDERS = [
         selected: false,
         key: 'gender'
     }
-]
+];
 
 module.exports.ALL_SORT_KEYS = [
     {
@@ -74,8 +74,14 @@ module.exports.ALL_SORT_KEYS = [
         title: 'Возраст',
         selected: false,
         key: 'sortKey'
+    },
+    {
+        id: 'colorHex',
+        title: 'Цвет',
+        selected: false,
+        key: 'sortKey'
     }
-]
+];
 
 module.exports.ALL_COLORS = [
     {
@@ -113,5 +119,4 @@ module.exports.ALL_COLORS = [
         hex: 'rainbow',
         style: 'rainbowCircle'
     }
-]
-
+];

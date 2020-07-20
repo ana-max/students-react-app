@@ -10,7 +10,7 @@ export const createStudent = (params, body) => {
     return fetch(url, {
         method: 'POST',
         body
-    }).then(response => response.json())
+    }).then(response => response.json());
 };
 
 export const deleteStudent = (params) => {
@@ -18,7 +18,7 @@ export const deleteStudent = (params) => {
     const url = createUrl(path, params);
     return fetch(url, {
         method: 'DELETE'
-    })
+    });
 };
 
 export const searchStudents = (params) => {
@@ -40,6 +40,5 @@ const createUrl = (path, params) => {
     url.pathname = path;
     const paramToQuery = (paramValue) => url.searchParams.set(...paramValue);
     Object.entries(params).forEach(paramToQuery);
-    console.info(url.toString())
     return url.toString();
-}
+};

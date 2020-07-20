@@ -1,13 +1,11 @@
-.form
-{
+.form {
     margin: 30px 0 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
 }
 
-.form__field
-{
+.form__field {
     display: flex;
     align-items: center;
     width: 380px;
@@ -23,19 +21,16 @@
     outline: none;
 }
 
-.form__field::placeholder
-{
+.form__field::placeholder {
     font-family: Geometria, sans-serif;
     color: #B3B3B3;
 }
 
-.formField__label
-{
+.formField__label {
     font-size: 15px;
 }
 
-.palette
-{
+.palette {
     display: block;
     margin-top: -14px;
 }
@@ -44,37 +39,31 @@
 .email,
 .speciality,
 .group,
-.rating
-{
+.rating {
     grid-column: 1 / 2;
 }
 
 .gender,
 .age,
-.favouriteColor
-{
+.favouriteColor {
     grid-column: 2 / 3;
 }
 
-.gender
-{
+.gender {
     grid-row: 1 / 2;
 }
 
-.age
-{
+.age {
     grid-row: 2 / 3;
 }
 
-.favouriteColor
-{
+.favouriteColor {
     grid-row: 3 / 4;
 }
 
 .speciality,
 .group,
-.gender
-{
+.gender {
     width: 380px;
     height: 48px;
     box-sizing: border-box;
@@ -83,17 +72,15 @@
     color: #B3B3B3;
 }
 
-.routerLink
-{
+.routerLink {
     grid-column: 1 / 2;
 }
 
-.button
-{
+.button {
     width: 380px;
     height: 50px;
     background: #49C2E8;
-    color: #fff;
+    color: #FFF;
     border-radius: 10px;
     font-weight: bold;
     font-size: 16px;
@@ -102,28 +89,24 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .form
-    {
+    .form {
         display: block;
     }
 
-    .form__field
-    {
+    .form__field {
         width: 100%;
     }
 
     .speciality,
     .group,
     .gender,
-    .button
-    {
+    .button {
         width: 100%;
     }
 
     .speciality,
     .group,
-    .gender
-    {
+    .gender {
         margin: 0 0 48px;
     }
 }

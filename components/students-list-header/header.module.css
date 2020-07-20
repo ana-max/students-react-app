@@ -1,5 +1,4 @@
-.header
-{
+.header {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 15px;
@@ -12,31 +11,25 @@
     font-weight: normal;
 }
 
-.name
-{
+.name {
     grid-column: 2 / 5;
 }
 
-.speciality
-{
+.speciality {
     grid-column: 5 / 8;
 }
 
-.group
-{
+.group {
     grid-column: 8 / 9;
 }
 
-.age
-{
+.age {
     grid-column: 9 / 10;
 }
 
-.rating
-{
+.rating {
     grid-column: 10 / 11;
 }
-
 
 @media screen and (max-width: 1000px) {
     .header {

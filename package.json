@@ -10,8 +10,8 @@
     "build": "next build",
     "dev": "cross-env NODE_PATH=dist/server node server/index.js",
     "start": "NODE_ENV=production node server/index.js",
-    "lint:css": "stylelint components/**/*.css",
-    "lint:es": "eslint --ext=.js,.jsx server/ pages/ components/"
+    "lint:css": "stylelint components/**/*.css pages/**.css",
+    "lint:es": "eslint --ext=.js server/"
   },
   "dependencies": {
     "cross-env": "^7.0.2",
@@ -29,8 +29,10 @@
     "sharp": "^0.25.4"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.20.3",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0"
   }

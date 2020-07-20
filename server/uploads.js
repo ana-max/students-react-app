@@ -5,7 +5,7 @@ module.exports.storageConfig = multer.diskStorage({
         cb(null, 'public/images');
     },
     filename: (req, file, cb) =>{
-        cb(null, file.originalname)
+        cb(null, file.originalname);
     }
 });
 
@@ -19,4 +19,4 @@ module.exports.fileFilter = (req, file, cb) => {
     else{
         cb(null, false);
     }
-}
+};

@@ -1,11 +1,9 @@
-.backToList
-{
+.backToList {
     display: flex;
     margin: 25px 0 0;
 }
 
-.backToList__text
-{
+.backToList__text {
     margin-left: 16px;
     font-size: 12px;
     line-height: 20px;

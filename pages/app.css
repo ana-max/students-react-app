@@ -1,36 +1,30 @@
-body
-{
+body {
     margin: 0;
     padding: 0;
     font-family: Geometria, sans-serif;
 }
 
-.content
-{
+.content {
     padding: 0 130px;
     margin-bottom: 50px;
 }
 
-.students-list-logo
-{
+.students-list-logo {
     font-weight: bold;
     font-size: 40px;
     line-height: 50px;
 }
 
-.search-sort-block
-{
+.search-sort-block {
     display: flex;
 }
 
-.students-list
-{
+.students-list {
     box-shadow: 0 7px 64px #EDEDED;
     border-radius: 6px;
 }
 
-.new-student
-{
+.new-student {
     font-weight: bold;
     font-size: 40px;
     line-height: 50px;
@@ -39,6 +33,6 @@ body
 
 @media screen and (max-width: 1000px) {
     .content {
-        padding: 0 21px
+        padding: 0 21px;
     }
 }

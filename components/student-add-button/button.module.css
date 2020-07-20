@@ -1,9 +1,8 @@
-.button
-{
+.button {
     width: 340px;
     height: 50px;
     background: #49C2E8;
-    color: #fff;
+    color: #FFF;
     position: absolute;
     right: 130px;
     top: 125px;
@@ -14,8 +13,7 @@
     outline: none;
 }
 
-.button::before
-{
+.button::before {
     content: '+  ';
 }
 

@@ -3,12 +3,12 @@ const { parse } = require('url');
 
 const express = require('express');
 const nextjs = require('next');
-const multer = require('multer');
+const multer = require('multer');
 
 const config = require('../config/default');
 const database = require('./database');
 const routes = require('./routes');
-const { storageConfig, fileFilter } = require('./uploads')
+const { storageConfig, fileFilter } = require('./uploads');
 
 require('isomorphic-fetch');
 

@@ -1,5 +1,4 @@
-.search
-{
+.search {
     display: flex;
     font-size: 16px;
     line-height: 20px;
@@ -9,8 +8,7 @@
     width: calc(100% - 200px);
 }
 
-.line
-{
+.line {
     height: 48px;
     box-sizing: border-box;
     border: none;
@@ -18,13 +16,11 @@
     width: 100%;
 }
 
-.lineLabel
-{
+.lineLabel {
     height: 48px;
 }
 
-.lineLabel__button
-{
+.lineLabel__button {
     height: 48px;
     width: 48px;
     border-bottom-left-radius: 6px;
@@ -35,8 +31,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .search
-    {
+    .search {
         width: 100%;
     }
 }

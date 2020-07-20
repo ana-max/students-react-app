@@ -1,11 +1,9 @@
-.avatar
-{
+.avatar {
     display: flex;
 }
 
 .preview__image,
-.preview__text
-{
+.preview__text {
     width: 80px;
     height: 80px;
     margin: 30px 0 0;
@@ -13,13 +11,11 @@
     border-radius: 50%;
 }
 
-.preview__image
-{
+.preview__image {
     object-fit: cover;
 }
 
-.preview__text
-{
+.preview__text {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,13 +24,11 @@
     color: #49C2E8;
 }
 
-.fileInput
-{
+.fileInput {
     display: none;
 }
 
-.changeAvatar
-{
+.changeAvatar {
     margin: 30px 0 0 20px;
     padding: 20px 0 0;
     font-size: 16px;
@@ -42,8 +36,7 @@
     cursor: pointer;
 }
 
-.fileSize
-{
+.fileSize {
     margin: 8px 0 0 20px;
     font-size: 12px;
     line-height: 15px;
