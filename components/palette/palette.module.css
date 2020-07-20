@@ -3,9 +3,9 @@
     height: 70px;
     padding: 20px 20px 20px 25px;
     box-sizing: border-box;
-    box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 7px 64px #EDEDED;
     border-radius: 6px;
-    margin-top: 6px;
+    margin-top: -14px;
     position: absolute;
     z-index: 120;
 }
@@ -49,7 +49,7 @@
 
 .rainbowCircle {
     margin-right: 0;
-    background: url('/images/rainbow.png') no-repeat center;
+    background: url('http://students-react-app.surge.sh/images/rainbow.png') no-repeat center;
 }
 
 @media screen and (max-width: 1000px) {

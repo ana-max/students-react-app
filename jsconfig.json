@@ -4,5 +4,9 @@
     "outDir": "dist/",
     "baseUrl": "./server/",
     "target": "es2018"
-  }
+  },
+  "include": [
+    "**/*.js",
+    "**/*.jsx"
+  ]
 }

@@ -1,3 +1,5 @@
+import { SURGE_PATH } from './consts';
+
 export const getStudents = () => {
     const url = '/api/students';
     return fetch(url)
@@ -42,3 +44,6 @@ const createUrl = (path, params) => {
     Object.entries(params).forEach(paramToQuery);
     return url.toString();
 };
+
+export const createImagePath = (name) => `${SURGE_PATH}/images/${name}`;
+

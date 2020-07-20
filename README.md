@@ -2,6 +2,8 @@
 
 В основе Express.js, React, MongoDB.
 
+Ссылка на приложение: https://students-react-app.herokuapp.com/
+
 #### Запуск приложения
 Для запуска приложения необходима установка MongoDB.
 Как установить MongoDB:  

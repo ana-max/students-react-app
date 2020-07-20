@@ -12,6 +12,7 @@ export default class Avatar extends Component {
         event.preventDefault();
         const reader = new FileReader();
         const file = event.target.files[0];
+        console.info(file)
         reader.onloadend = () => {
             this.setState({
                 photoUrl: file.name,

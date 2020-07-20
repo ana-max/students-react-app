@@ -32,7 +32,6 @@
 
 .palette {
     display: block;
-    margin-top: -14px;
 }
 
 .name,
@@ -68,7 +67,7 @@
     height: 48px;
     box-sizing: border-box;
     margin: 8px 0 20px;
-    background: url('/images/select-arrow.svg') no-repeat center right;
+    background: url('http://students-react-app.surge.sh/images/select-arrow.svg') no-repeat center right;
     color: #B3B3B3;
 }
 
@@ -77,6 +76,7 @@
 }
 
 .button {
+    grid-column: 1 / 2;
     width: 380px;
     height: 50px;
     background: #49C2E8;

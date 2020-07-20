@@ -11,8 +11,8 @@ module.exports.getAllStudents = async (req, res) => {
 };
 
 module.exports.createStudent = async (req, res) => {
-    const photoUrl = req.file ? req.file.filename : '';
-    const imagePath = path.join(process.cwd(), 'public/images', photoUrl);
+    const photoUrl = req.file ? req.file.path : '';
+    const imagePath = path.join(process.cwd(), photoUrl);
     const outputFile = `${Date.now()}-output.jpg`;
     const create = async () => {
         const photoData = photoUrl ? {

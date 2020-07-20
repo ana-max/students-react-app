@@ -7,11 +7,22 @@
   },
   "scripts": {
     "initdb": "node server/initDatabase.js",
-    "build": "next build",
+    "build": "npm-run-all --parallel build:*",
+    "build:next": "next build",
     "dev": "cross-env NODE_PATH=dist/server node server/index.js",
-    "start": "NODE_ENV=production node server/index.js",
+    "deps:production": "npm ci --production",
+    "start": "node server/index.js",
     "lint:css": "stylelint components/**/*.css pages/**.css",
-    "lint:es": "eslint --ext=.js server/"
+    "lint:es": "eslint --ext=.js server/",
+    "heroku-init": "heroku login && heroku create students-react-app",
+    "heroku:login": "heroku container:login",
+    "heroku:push": "heroku container:push web --app students-react-app",
+    "heroku:release": "heroku container:release web --app students-react-app",
+    "heroku:open": "heroku open --app students-react-app",
+    "heroku:logs": "heroku logs --tail --app students-react-app",
+    "heroku": "npm-run-all heroku:*",
+    "surge": "surge -p ./public/ -d students-react-app.surge.sh",
+    "deploy": "npm-run-all build surge heroku"
   },
   "dependencies": {
     "cross-env": "^7.0.2",
@@ -30,10 +41,13 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "copyfiles": "^2.3.0",
     "eslint": "^7.5.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.20.3",
+    "npm-run-all": "^4.1.5",
     "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "surge": "^0.21.6"
   }
 }

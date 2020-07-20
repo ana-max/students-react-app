@@ -55,5 +55,5 @@
 }
 
 .selectedItem {
-    background: #EBF8FC url('/images/selected-item.svg') no-repeat center right;
+    background: #EBF8FC url('http://students-react-app.surge.sh/images/selected-item.svg') no-repeat center right;
 }

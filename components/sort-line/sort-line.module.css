@@ -19,7 +19,7 @@
     border-top-left-radius: 6px;
     outline: none;
     border: none;
-    background: url('/images/sort-button.svg') no-repeat center;
+    background: url('http://students-react-app.surge.sh/images/sort-button.svg') no-repeat center;
     z-index: 300;
 }
 

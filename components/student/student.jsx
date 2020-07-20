@@ -24,7 +24,7 @@ export default class Student extends Component {
         const colorStyle = {
             background:
                 student.colorHex === '#rainbow' ?
-                'url(\'/images/rainbow.png\') no-repeat center' :
+                'url(\'http://students-react-app.surge.sh/images/rainbow.png\') no-repeat center' :
                 student.colorHex
         }
 

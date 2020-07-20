@@ -120,3 +120,6 @@ module.exports.ALL_COLORS = [
         style: 'rainbowCircle'
     }
 ];
+
+export const SURGE_PATH = 'http://students-react-app.surge.sh/';
+
