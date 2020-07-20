@@ -61,3 +61,26 @@
     margin-right: 0;
     background: url('/images/rainbow.png') no-repeat center;
 }
+
+@media screen and (max-width: 1000px) {
+    .form {
+        display: block;
+    }
+
+    .form__field {
+        width: 100%;
+    }
+
+    .colorSection
+    {
+        position: relative;
+        display: flex;
+        align-content: space-evenly;
+        width: 100%;
+    }
+
+    .colorLabel
+    {
+        margin: 0 14px 0 0;
+    }
+}

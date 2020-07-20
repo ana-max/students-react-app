@@ -76,3 +76,42 @@ module.exports.ALL_SORT_KEYS = [
         key: 'sortKey'
     }
 ]
+
+module.exports.ALL_COLORS = [
+    {
+        name: 'Голубой',
+        hex: '49C2E8',
+        style: 'blueCircle'
+    },
+    {
+        name: 'Красный',
+        hex: 'E25B5B',
+        style: 'redCircle'
+    },
+    {
+        name: 'Зелёный',
+        hex: '83C872',
+        style: 'greenCircle'
+    },
+    {
+        name: 'Жёлтый',
+        style: 'yellowCircle',
+        hex: 'F7FB53',
+    },
+    {
+        name: 'Чёрный',
+        hex: '000',
+        style: 'blackCircle'
+    },
+    {
+        name: 'Оранжевый',
+        hex: 'EFA638',
+        style: 'orangeCircle'
+    },
+    {
+        name: 'Все цвета',
+        hex: 'rainbow',
+        style: 'rainbowCircle'
+    }
+]
+

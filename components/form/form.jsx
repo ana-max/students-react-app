@@ -15,7 +15,8 @@ const INITIAL_STATE = {
     gender: '',
     age: '',
     color: '',
-    colorHex: ''
+    colorHex: '',
+    isPaletteOpen: false
 }
 
 export default class Form extends Component {
@@ -58,8 +59,15 @@ export default class Form extends Component {
     changeColor = (color, colorHex) => {
         this.setState({
             color,
-            colorHex
+            colorHex,
+            isPaletteOpen: false
         })
+    }
+
+    changePaletteVisibility = () => {
+        this.setState(state => ({
+            isPaletteOpen: !state.isPaletteOpen
+        }))
     }
 
     render() {
@@ -129,13 +137,12 @@ export default class Form extends Component {
                 <section className={styles.favouriteColor}>
                     <label className={styles.formField__label} htmlFor='favourite-color'>Любимый цвет</label>
                     <section>
-                        <label htmlFor='favourite-color' className={styles.form__field}>
+                        <div className={styles.form__field} onClick={this.changePaletteVisibility}>
                             {this.state.color || 'Выберите'}
-                        </label>
-                        <input type='checkbox' id='favourite-color' className={styles.colorSelect}/>
-                        <section className={styles.palette}>
+                        </div>
+                        {this.state.isPaletteOpen&&<section className={styles.palette}>
                             <Palette changeColor={this.changeColor} />
-                        </section>
+                        </section>}
                     </section>
                 </section>
 

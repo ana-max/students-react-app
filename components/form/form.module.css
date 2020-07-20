@@ -34,13 +34,7 @@
     font-size: 15px;
 }
 
-.palette,
-.colorSelect
-{
-    display: none;
-}
-
-.colorSelect:checked + .palette
+.palette
 {
     display: block;
     margin-top: -14px;
