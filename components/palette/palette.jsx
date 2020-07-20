@@ -11,6 +11,7 @@ export default class Palette extends Component {
 
     changeColor = (event) => {
         const color = ALL_COLORS.find(color => color.name === event.target.id);
+        if (!color) return;
         this.setState({
             favouriteColor: color.name,
             favouriteColorHex: color.hex

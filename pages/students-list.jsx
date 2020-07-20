@@ -25,9 +25,13 @@ export default class StudentsPage extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (!nextProps.newStudent) return;
-        this.setState(state => ({
-            students: state.students.concat([nextProps.newStudent])
-        }));
+        const existsNewStudent = this.state.students
+            .find(student => student.id === nextProps.newStudent.id)
+        if (existsNewStudent) {
+            this.setState(state => ({
+                students: state.students.concat([nextProps.newStudent])
+            }));
+        }
     }
 
     fetchStudents = () => {

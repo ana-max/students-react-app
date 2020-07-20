@@ -34,7 +34,7 @@ export default class Student extends Component {
                     {student.photoData ?
                         <img className={styles.image} src={`data:image;base64,${student.photoData.data}`}
                              alt='Фотография студента' /> :
-                        <div className={styles.image} />
+                        <div className={styles.text}>ФИ</div>
                     }
                 </section>
                 <p className={styles.student__name}>{`${student.name}`}</p>

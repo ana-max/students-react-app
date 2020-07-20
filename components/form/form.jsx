@@ -71,9 +71,6 @@ export default class Form extends Component {
     }
 
     render() {
-        const {name, email, speciality, group, rating, gender, age, color} = this.state;
-        const isButtonDisabled = !name || !email || !speciality || !group || !rating || !gender || !age || !color;
-
         return (
             <div className={styles.form}>
                 <section className={styles.name}>
@@ -113,7 +110,7 @@ export default class Form extends Component {
                     <label className={styles.formField__label} htmlFor='rating'>Рейтинг</label>
                     <input type='number' id='rating' className={styles.form__field}
                            onChange={this.handleFieldChange} placeholder='Рейтинг'
-                           autoComplete='off' min='0' required='required'
+                           autoComplete='off' min={0} required='required'
                     />
                 </section>
 
@@ -147,8 +144,8 @@ export default class Form extends Component {
                 </section>
 
                 <Link to={'/'} className={styles.routerLink}>
-                    <button className={styles.button} type='submit' disabled={isButtonDisabled}
-                            onClick={this.handleSubmit}>Создать
+                    <button className={styles.button} type='submit' onClick={this.handleSubmit}>
+                        Создать
                     </button>
                 </Link>
             </div>

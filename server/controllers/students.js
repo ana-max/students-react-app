@@ -14,18 +14,19 @@ module.exports.createStudent = async (req, res) => {
     const photoUrl = req.file ? req.file.filename : '';
     const imagePath = path.join(process.cwd(), 'public/images', photoUrl);
     const outputFile = `${Date.now()}-output.jpg`;
-    await sharp(imagePath).resize({ width: 36 }).toFile(outputFile)
-        .then(async () => {
-            const photoData = photoUrl ? {
-                data: fs.readFileSync(outputFile).toString('base64')
-            } : Buffer.from('');
-            fs.unlinkSync(outputFile);
-            await Student.create({
-                ...req.query, photoUrl, photoData
-            }, (err, student) => {
-                res.json(student);
-            });
+    const create = async () => {
+        const photoData = photoUrl ? {
+            data: fs.readFileSync(outputFile).toString('base64')
+        } : Buffer.from('');
+        await Student.create({
+            ...req.query, photoUrl, photoData
+        }, (err, student) => {
+            res.json(student);
         });
+    };
+
+    photoUrl ? await sharp(imagePath).resize({ width: 36 }).toFile(outputFile)
+        .then(create) : await create();
 };
 
 module.exports.searchStudents = async (req, res) => {

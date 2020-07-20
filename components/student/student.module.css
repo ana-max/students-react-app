@@ -13,8 +13,16 @@
     object-fit: cover;
 }
 
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #49C2E8;
+}
+
 .student__image,
-.image {
+.image,
+.text {
     grid-column: 1 / 2;
     border: 2px solid rgba(255, 255, 255, 0.6);
     width: 40px;

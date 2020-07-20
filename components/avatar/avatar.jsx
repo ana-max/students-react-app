@@ -4,6 +4,7 @@ import styles from './avatar.module.css';
 
 export default class Avatar extends Component {
     state = {
+        photoUrl: '',
         imagePreviewUrl: ''
     }
 
