@@ -7,8 +7,7 @@
   },
   "scripts": {
     "initdb": "node server/initDatabase.js",
-    "build": "npm-run-all --parallel build:*",
-    "build:next": "next build",
+    "build": "next build",
     "dev": "cross-env NODE_PATH=dist/server node server/index.js",
     "deps:production": "npm ci --production",
     "start": "node server/index.js",
