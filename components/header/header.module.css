@@ -1,4 +1,5 @@
 .logo {
+    display: flex;
     height: 85px;
     padding: 22px 123px;
     margin-bottom: 25px;
@@ -22,9 +23,24 @@
     margin: 0;
 }
 
+.githubLink {
+    color: #49C2E8;
+    text-decoration: none;
+}
+
+.githubSpan {
+    margin: 0 5px;
+    color: #000;
+}
+
 @media screen and (max-width: 1000px) {
     .logo {
         padding: 21px 29px;
         width: 100%;
+    }
+
+    .githubSpan,
+    .githubLink {
+        display: none;
     }
 }
